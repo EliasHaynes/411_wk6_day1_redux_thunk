@@ -13,3 +13,26 @@ export const removeCar = (index) => {
         value: index
     }
 }
+
+//Remember a function that returns a function that returns a object
+export const fetchMakes = () => {
+    return (dispatch) => {
+        fetch(url)
+        .then(res => res.json())
+        .then (response => {
+            console.log(response)
+            const action = {
+                type: "FETCH_MAKES",
+                value: response.Results
+            }
+            dispatch(action)
+        })
+    }
+}
+
+export const deleteMake = (index) => {
+    return {
+        type: "DELETE_MAKE",
+        value: index
+    }
+}
